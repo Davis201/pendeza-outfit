@@ -62,12 +62,12 @@ body{
 
 /* Specific background images mapped cleanly here */
 .slide:nth-child(1) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('eerr.jpeg');
+    background-image: url('eerr.jpeg');
     animation-delay: 0s;
 }
 
 .slide:nth-child(2) {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('concrete dreams.jpeg');
+    background-image: url('concrete dreams.jpeg');
     animation-delay: 5s;
 }
 
