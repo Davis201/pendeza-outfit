@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pendeza Fashion Marketplace</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600;1,700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="index-page">
+
+<div class="mobile-header">
+    <div class="mobile-logo">
+        PENDEZA OUTFITS
+    </div>
+
+    <div class="mobile-search">
+        <svg class="mobile-search-icon" viewBox="0 0 24 24">
+            <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2z"/>
+        </svg>
+        <input type="text" placeholder="Search">
+        <svg class="mobile-camera-icon" viewBox="0 0 24 24">
+            <path d="M9 3l-1.5 2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2h-2.5L15 3H9z"/>
+        </svg>
+    </div>
+
+    <div class="mobile-icons" onclick="toggleMenu()">
+        ☰
+    </div>
+</div>
+
+<div class="side-menu" id="sideMenu">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="javascript:void(0);" onclick="toggleMenu(); openLoginModal(event);">Sign In</a>
+    <a href="#">Settings</a>
+</div>
+
+<div class="promo-bar">
+    <span class="promo-left">‹</span>
+    <p>FREE SHIPPING for Everyone – On Orders over tshs 50,000/= | Detail</p>
+    <span class="promo-right">›</span>
+    <button class="promo-close">×</button>
+</div>
+
+<header class="main-header">
+    <div class="logo">
+        PENDEZA <span>wholesale</span>
+    </div>
+
+    <div class="search-box">
+        <svg class="icon search-icon" viewBox="0 0 24 24">
+            <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/>
+        </svg>
+        <input type="text" placeholder="Search">
+        <svg class="icon camera-icon" viewBox="0 0 24 24">
+            <path d="M9 3l-1.5 2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2h-2.5L15 3H9zm3 5a5 5 0 110 10 5 5 0 010-10z"/>
+        </svg>
+    </div>
+
+    <div class="actions">
+        <a href="#">DROPSHIPPING</a>
+        <a href="#">REGISTER</a>
+        <button class="sign-in" onclick="openLoginModal(event)">SIGN IN</button>
+    </div>
+</header>
+
+<nav class="sub-nav">
+    <a href="shop.html" class="highlight">Shop ⌵</a>
+    <a href="newin.html">New In</a>
+    <a href="#">Best of Best</a>
+    <a href="accessories.html">Accessories</a>
+    <a href="#">Jewelry</a>
+    <a href="#">Vendors <span class="badge">NEW</span></a>
+    <a href="#">THE EDIT</a>
+</nav>
+
+<div class="slider-wrapper">
+    
+    <div class="slider">
+        <div class="slide"></div>
+        <div class="slide"></div>
+        <div class="slide"></div>
+    </div>
+
+    <div class="hero-overlay">
+        <div class="content">
+            <div class="title">Wholesale</div>
+            <div class="subtitle">Marketplace</div>
+            <p class="desc">Luxury fashion made simple and powerful.</p>
+
+            <a href="#" class="btn" onclick="openLoginModal(event)">Sign Up / Login</a>
+            <div class="login-text">
+                Already have an account? 
+                <a href="#" class="login-link" onclick="openLoginModal(event)">Sign in</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<section class="promo-banner">
+    <h2>🔥 Limited Offer</h2>
+    <p>Get up to <strong>50% OFF</strong> on selected wholesale fashion items this week only.</p>
+    <a href="javascript:void(0);" class="promo-btn" onclick="openLoginModal(event)">Start Shopping</a>
+</section>
+
+<section class="features">
+    <h2>Why Choose Us</h2>
+    <div class="feature-grid">
+        <div class="feature">
+            <h3>🌍 Global Suppliers</h3>
+            <p>Connect with verified fashion wholesalers worldwide.</p>
+        </div>
+        <div class="feature">
+            <h3>💰 Best Wholesale Prices</h3>
+            <p>Save more with bulk purchase discounts.</p>
+        </div>
+        <div class="feature">
+            <h3>🚀 Fast Delivery</h3>
+            <p>Reliable shipping to your country or store.</p>
+        </div>
+    </div>
+</section>
+
+<section class="social">
+    <h2>Connect With Us</h2>
+    <div class="social-links">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://twitter.com" target="_blank">Twitter / X</a>
+        <a href="https://wa.me/0000000000" target="_blank">WhatsApp</a>
+    </div>
+</section>
+
+<section class="footer-extended">
+    <div class="footer-accordion">
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                Account <span>⌵</span>
+            </button>
+            <div class="accordion-content">
+                <a href="#">Track My Order</a>
+                <a href="#">Returns & Exchanges</a>
+                <a href="#">My Profile</a>
+            </div>
+        </div>
+        
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                Client Concierge <span>⌵</span>
+            </button>
+            <div class="accordion-content">
+                <a href="#">Help Center</a>
+                <a href="#">Contact Support</a>
+                <a href="#">Shipping Rates</a>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                The Company <span>⌵</span>
+            </button>
+            <div class="accordion-content">
+                <a href="#">About Pendeza</a>
+                <a href="#">Careers</a>
+                <a href="#">Wholesale Program</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    
+    <div class="blog-container">
+        <a href="#" class="blog-btn">READ OUR BLOG</a>
+    </div>
+
+    <div class="app-badges">
+        <a href="#" class="app-badge-item">
+            <span class="badge-top">Download on the</span>
+            <span class="badge-bold">App Store</span>
+        </a>
+        <a href="#" class="app-badge-item">
+            <span class="badge-top">GET IT ON</span>
+            <span class="badge-bold">Google Play</span>
+        </a>
+        <a href="#" class="app-badge-item">
+            <span class="badge-top">EXPLORE IT ON</span>
+            <span class="badge-bold">AppGallery</span>
+        </a>
+    </div>
+
+    <div class="trust-badge-container">
+        <div class="trust-card">
+            <div class="trust-card-logo">e</div>
+            <div class="trust-card-data">
+                <div class="trust-stars">★★★★★</div>
+                <span class="trust-score">4.65</span>
+                <span class="trust-label">Excellent</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-premium">
+    <div class="payment-methods">
+        <span> Pay</span>
+        <span>G Pay</span>
+        <span>VISA</span>
+        <span>Mastercard</span>
+        <span>EFT</span>
+    </div>
+
+    <div class="footer-legal-links">
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Shopping Glossary</a>
+        <a href="#">Dresses Glossary</a>
+        <a href="#">Sneakers Glossary</a>
+        <a href="#">Home + Living Glossary</a>
+        <a href="#">Black Friday Glossary</a>
+        <a href="#">Black Friday</a>
+    </div>
+
+    <p class="copyright-tag">©️ 2026 Wholesale Fashion Marketplace. All rights reserved.</p>
+</footer>
+
+<div class="login-modal-overlay" id="loginModal" onclick="closeLoginModal(event)">
+    <div class="login-box-card" onclick="event.stopPropagation()">
+        <button class="modal-close-btn" onclick="closeLoginModal(event)">&times;</button>
+        
+        <h2>Welcome Back</h2>
+        <p class="modal-subtitle">Sign in to your wholesale account</p>
+        
+        <form action="shop.html" method="GET">
+            <div class="input-group">
+                <input type="email" placeholder="Email Address" required>
+            </div>
+            <div class="input-group">
+                <input type="password" placeholder="Password" required>
+            </div>
+            <div class="form-actions">
+                <a href="#" class="forgot-pass">Forgot Password?</a>
+            </div>
+            <button type="submit" class="modal-submit-btn">SIGN IN</button>
+        </form>
+        
+        <div class="modal-footer">
+            <p>New to Pendeza? <a href="#">Create an account</a></p>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleMenu(){
+    document.getElementById("sideMenu").classList.toggle("active");
+}
+
+function toggleAccordion(button) {
+    button.classList.toggle("active");
+    var content = button.nextElementSibling;
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+    }
+}
+
+function openLoginModal(event) {
+    if(event) event.preventDefault(); 
+    document.getElementById("loginModal").classList.add("modal-active");
+    document.body.style.overflow = "hidden"; 
+}
+
+function closeLoginModal(event) {
+    if(event) event.preventDefault();
+    document.getElementById("loginModal").classList.remove("modal-active");
+    document.body.style.overflow = "auto"; 
+}
+</script>
+
+</body>
+</html>
