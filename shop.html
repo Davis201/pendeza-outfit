@@ -9,7 +9,6 @@
 </head>
 <body>
 
-<!-- Desktop View Header -->
 <header class="main-header">
     <a href="index.html" class="logo">
         PENDEZA <span>OUTFITS</span>
@@ -26,7 +25,6 @@
     <div class="desktop-menu-trigger" onclick="toggleMenu()">☰</div>
 </header>
 
-<!-- Mobile View Header -->
 <div class="mobile-header">
     <div class="mobile-logo">PENDEZA OUTFITS</div>
     <div class="mobile-icons" onclick="toggleMenu()">☰</div>
@@ -41,7 +39,6 @@
     </div>
 </div>
 
-<!-- SINGLE NAVIGATION BAR (Linked directly to our swipe system) -->
 <nav class="sub-nav">
     <a href="#" class="nav-link active" onclick="goToPage(0)">SHOP</a>
     <a href="#" class="nav-link" onclick="goToPage(1)">WOMEN</a>
@@ -52,7 +49,6 @@
     <a href="#" class="nav-link" onclick="goToPage(6)">ACCESSORIES</a>
 </nav>
 
-<!-- Sidebar Flyout Menu -->
 <div class="side-menu" id="sideMenu">
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
@@ -60,16 +56,11 @@
     <a href="#">Settings</a>
 </div>
 
-<!-- ===================================================
-   SWIPEABLE CONTAINER SYSTEM
-=================================================== -->
 <div class="swipe-viewport">
     <div class="swipe-container" id="swipeContainer">
         
-        <!-- PAGE 1: SHOP (Contains your main home storefront) -->
         <div class="page-panel">
             
-            <!-- Hero Slider Area inside Shop -->
             <div class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8'); background-size: cover; background-position: center; height: 55vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; border-radius: 8px;">
                 <div class="hero-content" style="padding: 0 20px;">
                     <h1 style="font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">BOGO FREE</h1>
@@ -78,13 +69,11 @@
                 </div>
             </div>
 
-            <!-- Promo Banner inside Shop -->
             <section class="promo-banner" style="padding: 35px 20px; background: #fff; text-align: center; border-bottom: 1px solid #eee;">
                 <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 6px;">🔥 Limited Offer</h2>
                 <p style="font-size: 14px; color: #555; max-width: 550px; margin: 0 auto; line-height: 1.5;">Buy one top or bottom item and get your second item completely free with code <strong>FREE</strong> at checkout this week only.</p>
             </section>
 
-            <!-- Trend Report Display Grid inside Shop -->
             <main id="shop-grid" class="trend-report-section">
                 <h2 class="grid-section-title" style="text-align: center; margin: 30px 0 15px; font-weight: 800;">THE TREND REPORT</h2>
                 <div class="trend-grid">
@@ -109,48 +98,52 @@
 
         </div>
 
-        <!-- PAGE 2 (Index 1): WOMEN -->
         <div class="page-panel">
             <h2>Women's Content Panels</h2>
         </div>
 
-        <!-- PAGE 3 (Index 2): MEN -->
         <div class="page-panel">
             <h2>Men's Content Panels</h2>
         </div>
 
-        <!-- PAGE 4 (Index 3): SPORT -->
         <div class="page-panel">
             <h2>Sport Content Panels</h2>
         </div>
 
-        <!-- PAGE 5 (Index 4): KIDS -->
         <div class="page-panel">
             <h2>Kids Collection Content</h2>
         </div>
 
-        <!-- PAGE 6 (Index 5): NEW IN -->
         <div class="page-panel">
             <h2>New In Arrivals Content</h2>
         </div>
 
-        <!-- PAGE 7 (Index 6): ACCESSORIES -->
         <div class="page-panel">
             <h2>Accessories Content Panels</h2>
         </div>
 
     </div>
 </div>
-<!-- Global Footer -->
+
 <footer class="footer" style="padding: 20px; text-align: center; border-top: 1px solid #eee; margin-top: 40px;">
     <p>&copy; 2026 PENDEZA OUTFITS. <a href="index.html" style="color: #aaa; text-decoration: underline; margin-left: 10px;">Logout</a></p>
 </footer>
 
-<!-- Touch Script Mechanics -->
 <script>
 const container = document.getElementById('swipeContainer');
 const links = document.querySelectorAll('.sub-nav .nav-link');
-let currentPage = 0;
+
+/* ===================================================
+   CRITICAL NOTE FOR SEPARATE PAGES:
+   * Inside shop.html, keep this: let currentPage = 0;
+   * Inside womens.html, change this to: let currentPage = 1;
+   * Inside mens.html, change this to: let currentPage = 2;
+   * Inside kids.html, change this to: let currentPage = 3;
+   * Inside sports.html, change this to: let currentPage = 4;
+   * Inside newin.html, change this to: let currentPage = 5;
+   * Inside accessories.html, change this to: let currentPage = 6;
+=================================================== */
+let currentPage = 0; 
 const totalPages = 7;
 
 let touchStartX = 0;
@@ -176,16 +169,20 @@ function handleSwipe() {
 
 function goToPage(pageIndex) {
     currentPage = pageIndex;
-    container.style.transform = `translateX(-${pageIndex * 100}vw)`;
     
-    links.forEach((link, idx) => {
-        if (idx === pageIndex) {
-            link.classList.add('active');
-            link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        } else {
-            link.classList.remove('active');
-        }
-    });
+    // Array matching your navigation links order
+    const pages = [
+        "shop.html",        // Index 0
+        "womens.html",      // Index 1
+        "mens.html",        // Index 2
+        "kids.html",        // Index 3
+        "sports.html",      // Index 4
+        "newin.html",       // Index 5
+        "accessories.html"  // Index 6
+    ];
+
+    // Instantly routes the web browser to the matching page file
+    window.location.href = pages[pageIndex];
 }
 </script>
 </body>
