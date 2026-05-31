@@ -10,10 +10,10 @@
 </head>
 <body>
 
-    <!-- ===================================================
-       CORRECTED MOBILE HEADER (SPLIT INTO DEDICATED ROWS)
-    =================================================== -->
-    
+  <!-- ===================================================
+   CORRECTED MOBILE HEADER & NAVIGATION SYSTEM
+=================================================== -->
+
 <div class="mobile-header">
     <div class="mobile-logo">
         PENDEZA OUTFITS
@@ -34,23 +34,10 @@
     </div>
 </div>
 
-<div class="side-menu" id="sideMenu">
-    <a href="index.html">Home</a>
-    <a href="shop.html">Shop</a>
-    <a href="javascript:void(0);" onclick="toggleMenu(); openLoginModal(event);">Sign In</a>
-    <a href="#">Settings</a>
-</div>
-
-<div class="promo-bar">
-    <span class="promo-left">‹</span>
-    <p>FREE SHIPPING for Everyone – On Orders over tshs 50,000/= | Detail</p>
-    <span class="promo-right">›</span>
-    <button class="promo-close">×</button>
-</div>
-
+<!-- Desktop-Only Container (safely disappears on mobile screens) -->
 <header class="main-header">
     <div class="logo">
-        PENDEZA <span>OUTFITS</span>
+        PENDEZA <span>wholesale</span>
     </div>
 
     <div class="search-box">
@@ -62,17 +49,24 @@
             <path d="M9 3l-1.5 2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2h-2.5L15 3H9zm3 5a5 5 0 110 10 5 5 0 010-10z"/>
         </svg>
     </div>
+</header>
+<!-- PLACED OUTSIDE THE DESKTOP HEADER: This stays visible everywhere! -->
+<nav class="sub-nav">
+    <a href="shop.html" class="highlight">SHOP</a> <!-- Restored! -->
+    <a href="womens.html">WOMEN</a>
+    <a href="mens.html">MEN</a>
+    <a href="sports.html">SPORT</a>
+    <a href="kids.html">KIDS</a>
+    <a href="newin.html">NEW IN</a>
+    <a href="accessories.html">ACCESSORIES <span class="badge">NEW</span></a>
+</nav>
 
-    <!-- Row 3: Horizontal Scroll Nav Container -->
-    <nav class="sub-nav">
-        <a href="shop.html" class="highlight">SHOP</a>
-        <a href="mens.html">MEN</a>
-        <a href="womens.html">WOMEN</a>
-        <a href="sports.html">SPORT</a>
-        <a href="kids.html">KIDS</a>
-        <a href="newin.html">NEW IN</a>
-        <a href="accessories.html">ACCESSORIES <span class="badge">NEW</span></a>
-    </nav>
+<div class="side-menu" id="sideMenu">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="javascript:void(0);" onclick="toggleMenu(); openLoginModal(event);">Sign In</a>
+    <a href="#">Settings</a>
+</div>
 
     <!-- ===================================================
        HERO SLIDER AREA (STYLING MOVED TO INLINE/GLOBAL ACCURACY)
