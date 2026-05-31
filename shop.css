@@ -331,7 +331,7 @@ body.index-page {
 /* Lines up all your sections in a continuous horizontal filmstrip layout row */
 .swipe-container {
     display: flex;
-    width: 400%; /* 100% multiplied by your total number of pages (4 pages = 400%) */
+    width: 700%; /* 100% multiplied by your total number of pages (7 pages = 700%) */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Makes the sliding snap look smooth */
     will-change: transform;
 }
