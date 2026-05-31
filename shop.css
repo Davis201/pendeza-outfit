@@ -317,7 +317,38 @@ body.index-page {
     margin-left: 5px;           
     border-radius: 10px;
 }
+/* ===================================================
+   SWIPEABLE PAGE SYSTEM
+=================================================== */
 
+/* Hides horizontal overflow layout bugs */
+.swipe-viewport {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Lines up all your sections in a continuous horizontal filmstrip layout row */
+.swipe-container {
+    display: flex;
+    width: 400%; /* 100% multiplied by your total number of pages (4 pages = 400%) */
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); /* Makes the sliding snap look smooth */
+    will-change: transform;
+}
+
+/* Forces every page panel to take up exactly one full mobile screen width */
+.page-panel {
+    width: 100vw;
+    flex-shrink: 0;
+    min-height: 80vh;
+    padding: 10px;
+}
+
+/* Active navigation highlight styles */
+.sub-nav a.nav-link.active {
+    color: #000000 !important;
+    border-bottom: 2px solid #000000 !important;
+}
 /* ===================================================
    MARKETING SECTIONS (PROMO / SUPPLIER FEATURES)
 =================================================== */

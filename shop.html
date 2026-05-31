@@ -5,28 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Pendeza Outfits</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Links to your separate stylesheet -->
     <link rel="stylesheet" href="shop.css?v=999">
 </head>
 <body>
 
-  <!-- ===================================================
-   CORRECTED MOBILE HEADER & NAVIGATION SYSTEM
-=================================================== -->
-
-<!-- ===================================================
-   UNIFIED HEADER & NAVIGATION SYSTEM
-=================================================== -->
-
-<!-- Desktop View Header (Search bar moved next to logo, menu on top right) -->
+<!-- Desktop View Header -->
 <header class="main-header">
-    
-    <!-- 1. Brand Logo Left -->
     <a href="index.html" class="logo">
         PENDEZA <span>OUTFITS</span>
     </a>
-
-    <!-- 2. Search Bar immediately after the logo -->
     <div class="search-box">
         <svg class="icon search-icon" viewBox="0 0 24 24">
             <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/>
@@ -36,24 +23,13 @@
             <path d="M9 3l-1.5 2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2h-2.5L15 3H9zm3 5a5 5 0 110 10 5 5 0 010-10z"/>
         </svg>
     </div>
-    
-    <!-- 3. Triple Lines Menu Trigger standalone on the far right -->
-    <div class="desktop-menu-trigger" onclick="toggleMenu()">
-        ☰
-    </div>
-
+    <div class="desktop-menu-trigger" onclick="toggleMenu()">☰</div>
 </header>
 
-<!-- Mobile View Header (Image_5.png Match) -->
+<!-- Mobile View Header -->
 <div class="mobile-header">
-    <div class="mobile-logo">
-        PENDEZA OUTFITS
-    </div>
-
-    <div class="mobile-icons" onclick="toggleMenu()">
-        ☰
-    </div>
-
+    <div class="mobile-logo">PENDEZA OUTFITS</div>
+    <div class="mobile-icons" onclick="toggleMenu()">☰</div>
     <div class="mobile-search">
         <svg class="mobile-search-icon" viewBox="0 0 24 24">
             <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2z"/>
@@ -65,17 +41,18 @@
     </div>
 </div>
 
-<!-- Shared Nav Links (Stays perfectly consistent) -->
+<!-- SINGLE NAVIGATION BAR (Linked directly to our swipe system) -->
 <nav class="sub-nav">
-    <a href="shop.html" class="highlight">SHOP</a>
-    <a href="womens.html">WOMEN</a>
-    <a href="mens.html">MEN</a>
-    <a href="sports.html">SPORT</a>
-    <a href="kids.html">KIDS</a>
-    <a href="newin.html">NEW IN</a>
-    <a href="accessories.html">ACCESSORIES <span class="badge">NEW</span></a>
+    <a href="#" class="nav-link active" onclick="goToPage(0)">SHOP</a>
+    <a href="#" class="nav-link" onclick="goToPage(1)">WOMEN</a>
+    <a href="#" class="nav-link" onclick="goToPage(2)">MEN</a>
+    <a href="#" class="nav-link" onclick="goToPage(3)">KIDS</a>
+    <a href="#" class="nav-link" onclick="goToPage(4)">SPORTS</a>
+    <a href="#" class="nav-link" onclick="goToPage(5)">NEW IN <span class="badge">NEW</span></a>
+    <a href="#" class="nav-link" onclick="goToPage(6)">ACCESSORIES</a>
 </nav>
 
+<!-- Sidebar Flyout Menu -->
 <div class="side-menu" id="sideMenu">
     <a href="index.html">Home</a>
     <a href="shop.html">Shop</a>
@@ -83,75 +60,122 @@
     <a href="#">Settings</a>
 </div>
 
-    <!-- ===================================================
-       HERO SLIDER AREA (STYLING MOVED TO INLINE/GLOBAL ACCURACY)
-    =================================================== -->
-    <div class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8'); background-size: cover; background-position: center; height: 55vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative;">
-        <div class="hero-content" style="padding: 0 20px;">
-            <h1 style="font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">BOGO FREE</h1>
-            <p style="font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">TOPS & BOTTOMS | USE CODE: FREE</p>
-            <!-- Turned into a clear high-visibility solid button block -->
-            <a href="#shop-grid" class="btn btn-primary" style="display: inline-block; padding: 12px 32px; background: #ffffff; color: #000000; text-decoration: none; border-radius: 30px; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">Shop Now</a>
-        </div>
-    </div>
-
-    <!-- ===================================================
-       PROMO BANNER (PROMOTIONAL MESSAGE REALIGNED)
-    =================================================== -->
-    <section class="promo-banner" style="padding: 35px 20px; background: #fff; text-align: center; border-bottom: 1px solid #eee;">
-        <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 6px;">🔥 Limited Offer</h2>
-        <p style="font-size: 14px; color: #555; max-width: 550px; margin: 0 auto; line-height: 1.5;">Buy one top or bottom item and get your second item completely free with code <strong>FREE</strong> at checkout this week only.</p>
-    </section>
-
-    <!-- ===================================================
-       MAIN CONTENT DISPLAY GRID AREA
-    =================================================== -->
-  <!-- ===================================================
-   TREND REPORT 2x2 GRID DISPLAY (AS SEEN IN IMAGE_2.PNG)
+<!-- ===================================================
+   SWIPEABLE CONTAINER SYSTEM
 =================================================== -->
-<main id="shop-grid" class="trend-report-section">
-    <h2 class="grid-section-title">THE TREND REPORT</h2>
-    
-    <div class="trend-grid">
-        <!-- Item 1 -->
-        <div class="trend-card">
-            <div class="trend-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38" alt="Jet Set Ready">
+<div class="swipe-viewport">
+    <div class="swipe-container" id="swipeContainer">
+        
+        <!-- PAGE 1: SHOP (Contains your main home storefront) -->
+        <div class="page-panel">
+            
+            <!-- Hero Slider Area inside Shop -->
+            <div class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8'); background-size: cover; background-position: center; height: 55vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; border-radius: 8px;">
+                <div class="hero-content" style="padding: 0 20px;">
+                    <h1 style="font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 700; letter-spacing: 1px; margin-bottom: 4px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">BOGO FREE</h1>
+                    <p style="font-size: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; text-shadow: 0 2px 10px rgba(0,0,0,0.3);">TOPS & BOTTOMS | USE CODE: FREE</p>
+                    <a href="#shop-grid" class="btn btn-primary" style="display: inline-block; padding: 12px 32px; background: #ffffff; color: #000000; text-decoration: none; border-radius: 30px; font-weight: 700; text-transform: uppercase; font-size: 13px; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">Shop Now</a>
+                </div>
             </div>
-            <a href="#" class="trend-label">Jet Set Ready <span class="arrow">›</span></a>
+
+            <!-- Promo Banner inside Shop -->
+            <section class="promo-banner" style="padding: 35px 20px; background: #fff; text-align: center; border-bottom: 1px solid #eee;">
+                <h2 style="font-size: 22px; font-weight: 700; margin-bottom: 6px;">🔥 Limited Offer</h2>
+                <p style="font-size: 14px; color: #555; max-width: 550px; margin: 0 auto; line-height: 1.5;">Buy one top or bottom item and get your second item completely free with code <strong>FREE</strong> at checkout this week only.</p>
+            </section>
+
+            <!-- Trend Report Display Grid inside Shop -->
+            <main id="shop-grid" class="trend-report-section">
+                <h2 class="grid-section-title" style="text-align: center; margin: 30px 0 15px; font-weight: 800;">THE TREND REPORT</h2>
+                <div class="trend-grid">
+                    <div class="trend-card">
+                        <div class="trend-img-wrapper"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38" alt="Jet Set Ready"></div>
+                        <a href="#" class="trend-label">Jet Set Ready <span class="arrow">›</span></a>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-img-wrapper"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" alt="Vacation Strolls"></div>
+                        <a href="#" class="trend-label">Vacation Strolls <span class="arrow">›</span></a>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-img-wrapper"><img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47" alt="Hotter on Vacation"></div>
+                        <a href="#" class="trend-label">Hotter on Vacation <span class="arrow">›</span></a>
+                    </div>
+                    <div class="trend-card">
+                        <div class="trend-img-wrapper"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae" alt="Swim Escape"></div>
+                        <a href="#" class="trend-label">Swim Escape <span class="arrow">›</span></a>
+                    </div>
+                </div>
+            </main>
+
         </div>
 
-        <!-- Item 2 -->
-        <div class="trend-card">
-            <div class="trend-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f" alt="Vacation Strolls">
-            </div>
-            <a href="#" class="trend-label">Vacation Strolls <span class="arrow">›</span></a>
+        <!-- PAGE 2: WOMEN -->
+        <div class="page-panel">
+            <h2 style="text-align: center; margin-top: 50px; font-family: 'Playfair Display', serif;">Women's Collection</h2>
+            <p style="text-align: center; color: #666;">New styles arriving daily.</p>
         </div>
 
-        <!-- Item 3 -->
-        <div class="trend-card">
-            <div class="trend-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1521335629791-ce4aec67dd47" alt="Hotter on Vacation">
-            </div>
-            <a href="#" class="trend-label">Hotter on Vacation <span class="arrow">›</span></a>
+        <!-- PAGE 3: MEN -->
+        <div class="page-panel">
+            <h2 style="text-align: center; margin-top: 50px; font-family: 'Playfair Display', serif;">Men's Collection</h2>
+            <p style="text-align: center; color: #666;">Essential styles tailored for you.</p>
         </div>
 
-        <!-- Item 4 -->
-        <div class="trend-card">
-            <div class="trend-img-wrapper">
-                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae" alt="Swim Escape">
-            </div>
-            <a href="#" class="trend-label">Swim Escape <span class="arrow">›</span></a>
+        <!-- PAGE 4: SPORT -->
+        <div class="page-panel">
+            <h2 style="text-align: center; margin-top: 50px; font-family: 'Playfair Display', serif;">Active & Sport</h2>
+            <p style="text-align: center; color: #666;">Performance apparel ready for action.</p>
         </div>
+
     </div>
-</main>
-    <!-- ===================================================
-       FOOTER
-    =================================================== -->
-    <footer class="footer">
-        <p>&copy; 2026 PENDEZA OUTFITS. <a href="index.html" style="color: #aaa; text-decoration: underline; margin-left: 10px;">Logout</a></p>
-    </footer>
+</div>
 
+<!-- Global Footer -->
+<footer class="footer" style="padding: 20px; text-align: center; border-top: 1px solid #eee; margin-top: 40px;">
+    <p>&copy; 2026 PENDEZA OUTFITS. <a href="index.html" style="color: #aaa; text-decoration: underline; margin-left: 10px;">Logout</a></p>
+</footer>
+
+<!-- Touch Script Mechanics -->
+<script>
+const container = document.getElementById('swipeContainer');
+const links = document.querySelectorAll('.sub-nav .nav-link');
+let currentPage = 0;
+const totalPages = 4;
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+}, { passive: true });
+
+function handleSwipe() {
+    const swipeThreshold = 60;
+    if (touchStartX - touchEndX > swipeThreshold) {
+        if (currentPage < totalPages - 1) goToPage(currentPage + 1);
+    } else if (touchEndX - touchStartX > swipeThreshold) {
+        if (currentPage > 0) goToPage(currentPage - 1);
+    }
+}
+
+function goToPage(pageIndex) {
+    currentPage = pageIndex;
+    container.style.transform = `translateX(-${pageIndex * 100}vw)`;
+    
+    links.forEach((link, idx) => {
+        if (idx === pageIndex) {
+            link.classList.add('active');
+            link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+            link.classList.remove('active');
+        }
+    });
+}
+</script>
 </body>
 </html>
