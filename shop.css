@@ -197,62 +197,90 @@ body.index-page {
 }
 
 /* Aligns logo and desktop search layout parameters perfectly inline */
+/* ===================================================
+   DESKTOP GLOBAL HEADER SYSTEM (UNBUNDLED LAYOUT)
+=================================================== */
+
 .main-header {
     display: flex;
     flex-direction: row; 
-    justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
     background: #fff;
     border-bottom: 1px solid #eee;
-    gap: 30px;
+    width: 100%;
+    gap: 30px; /* Space between Logo and the Search bar */
 }
 
 .logo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-weight: 600;
-    font-size: 24px;
-    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 1px;
     color: #111;
     text-decoration: none;
-    white-space: nowrap;
+    text-transform: uppercase;
+    flex-shrink: 0; /* Prevents the logo from getting squished */
 }
 
 .logo span {
-    font-family: 'Roboto', sans-serif;
-    font-size: 11px;
-    font-weight: 300;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 400;
+    font-style: italic;
+    text-transform: lowercase;
+    margin-left: 6px;
 }
 
+/* The Search Box sits directly after the logo now */
 .search-box {
-    flex: 1;
-    max-width: 500px;
     position: relative;
-    margin: 0;
+    width: 100%;
+    
+    /* ---> ADJUST THE SQUEEZE/WIDTH HERE <---
+       Change 400px smaller if you want it squeezed narrow. 
+       Change it larger if you want it wider. */
+    max-width: 400px; 
 }
 
 .search-box input {
     width: 100%;
-    padding: 12px 45px;
-    border-radius: 30px;
-    border: 1px solid #ddd;
+    padding: 10px 45px;
+    border-radius: 6px; 
+    border: 1px solid #e5e5e5;
+    background: #f5f5f5;
     outline: none;
-    background: #f9f9f9;
+    font-size: 14px;
 }
 
 .icon {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    fill: #777;
+    width: 16px;
+    height: 16px;
+    fill: #666;
 }
 
 .search-icon { left: 15px; }
 .camera-icon { right: 15px; }
 
+/* Forces the Triple Lines to lock by itself onto the top right side */
+.desktop-menu-trigger {
+    font-size: 22px;
+    color: #111;
+    cursor: pointer;
+    user-select: none;
+    padding: 5px;
+    
+    /* This special margin pushes it all the way to the far right side of the screen */
+    margin-left: auto; 
+}
+
+.desktop-menu-trigger:hover {
+    opacity: 0.6;
+}
 /* Desktop styling for the categories bar sitting below the header row */
 .sub-nav {
     display: flex;

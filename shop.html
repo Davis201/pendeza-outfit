@@ -6,7 +6,7 @@
     <title>Dashboard | Pendeza Outfits</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <!-- Links to your separate stylesheet -->
-    <link rel="stylesheet" href="shop.css?v=1.1">
+    <link rel="stylesheet" href="shop.css?v=999">
 </head>
 <body>
 
@@ -14,9 +14,44 @@
    CORRECTED MOBILE HEADER & NAVIGATION SYSTEM
 =================================================== -->
 
+<!-- ===================================================
+   UNIFIED HEADER & NAVIGATION SYSTEM
+=================================================== -->
+
+<!-- Desktop View Header (Search bar moved next to logo, menu on top right) -->
+<header class="main-header">
+    
+    <!-- 1. Brand Logo Left -->
+    <a href="index.html" class="logo">
+        PENDEZA <span>OUTFITS</span>
+    </a>
+
+    <!-- 2. Search Bar immediately after the logo -->
+    <div class="search-box">
+        <svg class="icon search-icon" viewBox="0 0 24 24">
+            <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/>
+        </svg>
+        <input type="text" placeholder="Search">
+        <svg class="icon camera-icon" viewBox="0 0 24 24">
+            <path d="M9 3l-1.5 2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2h-2.5L15 3H9zm3 5a5 5 0 110 10 5 5 0 010-10z"/>
+        </svg>
+    </div>
+    
+    <!-- 3. Triple Lines Menu Trigger standalone on the far right -->
+    <div class="desktop-menu-trigger" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</header>
+
+<!-- Mobile View Header (Image_5.png Match) -->
 <div class="mobile-header">
     <div class="mobile-logo">
         PENDEZA OUTFITS
+    </div>
+
+    <div class="mobile-icons" onclick="toggleMenu()">
+        ☰
     </div>
 
     <div class="mobile-search">
@@ -28,31 +63,11 @@
             <path d="M9 3l-1.5 2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2h-2.5L15 3H9z"/>
         </svg>
     </div>
-
-    <div class="mobile-icons" onclick="toggleMenu()">
-        ☰
-    </div>
 </div>
 
-<!-- Desktop-Only Container (safely disappears on mobile screens) -->
-<header class="main-header">
-    <div class="logo">
-        PENDEZA <span>wholesale</span>
-    </div>
-
-    <div class="search-box">
-        <svg class="icon search-icon" viewBox="0 0 24 24">
-            <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/>
-        </svg>
-        <input type="text" placeholder="Search">
-        <svg class="icon camera-icon" viewBox="0 0 24 24">
-            <path d="M9 3l-1.5 2H5a2 2 0 00-2 2v12a2 2 0 002 2h14a2 2 0 002-2V7a2 2 0 00-2-2h-2.5L15 3H9zm3 5a5 5 0 110 10 5 5 0 010-10z"/>
-        </svg>
-    </div>
-</header>
-<!-- PLACED OUTSIDE THE DESKTOP HEADER: This stays visible everywhere! -->
+<!-- Shared Nav Links (Stays perfectly consistent) -->
 <nav class="sub-nav">
-    <a href="shop.html" class="highlight">SHOP</a> <!-- Restored! -->
+    <a href="shop.html" class="highlight">SHOP</a>
     <a href="womens.html">WOMEN</a>
     <a href="mens.html">MEN</a>
     <a href="sports.html">SPORT</a>
