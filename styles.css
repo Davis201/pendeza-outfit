@@ -316,3 +316,18 @@
     min-height: 100vh !important;
     padding: 0px !important; /* Strips internal padding to enable seamless full-bleed images */
 }
+ /* Force all pages in your app-scope to initialize immediately */
+.fn-app-scope {
+    display: block !important;
+    visibility: visible !important;
+    contain: none !important; /* Prevents the browser from 'hiding' the content until swipe */
+    width: 100vw !important;
+    min-height: 100vh !important;
+}
+
+/* Force every section to have a calculated height immediately */
+.fn-app-scope section {
+    display: block !important;
+    height: auto !important;
+    opacity: 1 !important;
+}
