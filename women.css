@@ -1,0 +1,54 @@
+/* ================================
+   TREND SECTION (Perfect image_7.png Match)
+================================ */
+.app-trend-section {
+    padding: 15px 0;
+    background: #fff;
+    width: 100%;
+    /* Shrinks the entire section to mobile width so images don't look huge */
+    max-width: 430px; 
+    margin: 0 auto;
+}
+
+.app-section-title {
+    font-size: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    padding-left: 14px; /* Matches native app alignment */
+    color: #000;
+}
+
+.app-trend-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px 12px;
+    padding: 0 14px !important;
+    width: 100%;
+}
+
+/* Force smaller tile height */
+.app-trend-card img {
+    width: 100% !important;
+    height: 45px !important;   /* THIS is the real size control */
+    object-fit: cover !important;
+    display: block;
+}
+
+/* Reduce text spacing so layout doesn't stretch */
+.app-trend-label {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 0 8px 0;
+}
+
+/* The native arrow icon */
+.app-trend-label::after {
+    content: " ›";
+    font-size: 13px;
+    margin-left: 3px;
+    font-weight: 700;
+    position: relative;
+    top: -1px;
+}
