@@ -1,5 +1,276 @@
+<!-- START OF HIGH-FIDELITY APP CLONE FEED (2X2 SQUARE GRID ARRANGEMENT) -->
 <div class="fn-app-scope">
-<link rel="stylesheet" href="newin.css">
+    <style>
+        /* Scoped Container Sandbox & Full-Bleed Resets */
+        .fn-app-scope {
+            width: 100%;
+            background-color: #ffffff;
+            color: #000000;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
+        }
+        .fn-app-scope * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* NATIVE SEARCH BAR PREVIEW */
+        .fn-search-container {
+            padding: 10px 14px;
+            background-color: #ffffff;
+            width: 100%;
+        }
+        .fn-search-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .fn-search-input {
+            width: 100% !important;
+            padding: 12px 42px 12px 42px !important;
+            border: 1px solid #e5e5ea !important;
+            border-radius: 25px !important;
+            font-size: 14px !important;
+            color: #8e8e93 !important;
+            background-color: #ffffff !important;
+            outline: none !important;
+            height: 42px !important;
+        }
+        .fn-icon-left {
+            position: absolute;
+            left: 16px;
+            display: flex;
+            align-items: center;
+            pointer-events: none;
+        }
+        .fn-icon-right {
+            position: absolute;
+            right: 16px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        /* SUB-NAVIGATION CHIPS */
+        .fn-sub-nav {
+            display: flex !important;
+            gap: 20px !important;
+            padding: 4px 16px 14px 16px !important;
+            background-color: #ffffff;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .fn-sub-nav::-webkit-scrollbar {
+            display: none;
+        }
+        .fn-sub-link {
+            text-decoration: none !important;
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            color: #8e8e93 !important;
+            letter-spacing: 0.5px !important;
+            text-transform: uppercase !important;
+        }
+        .fn-sub-link.active {
+            color: #000000 !important;
+            font-weight: 700 !important;
+        }
+
+        /* HERO ARRIVALS BANNER */
+        .fn-hero-banner {
+            position: relative;
+            width: 100% !important;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        .fn-hero-img {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+        }
+        .fn-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: left !important;
+            color: #ffffff;
+            padding: 24px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-end !important;
+            align-items: flex-start !important;
+            background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 50%);
+        }
+        .fn-promo-box p {
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            margin-bottom: 4px !important;
+            color: #ffffff !important;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+        }
+        .fn-promo-box h2 {
+            font-size: 38px !important;
+            font-weight: 900 !important;
+            letter-spacing: -1px !important;
+            line-height: 1.05 !important;
+            color: #ffffff !important;
+            text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+        }
+        .fn-promo-code {
+            font-size: 11px !important;
+            letter-spacing: 0.2px !important;
+            margin-top: 6px !important;
+            color: #ffffff !important;
+            text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        .fn-hero-btn-container {
+            margin-top: 14px !important;
+            width: auto !important;
+            text-align: left !important;
+        }
+        .fn-shop-btn-outline {
+            display: inline-block !important;
+            padding: 12px 45px !important;
+            border: 1.5px solid #ffffff !important;
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-size: 14px !important;
+            font-weight: 700 !important;
+            letter-spacing: 1.5px !important;
+            text-transform: uppercase !important;
+            background-color: rgba(0, 0, 0, 0.15) !important;
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+        }
+
+        /* SECTION HEADING */
+        .fn-section-heading {
+            font-size: 18px !important;
+            font-weight: 900 !important;
+            text-transform: uppercase !important;
+            padding: 28px 16px 14px 16px !important;
+            letter-spacing: 0.2px !important;
+            color: #000000 !important;
+            display: block !important;
+        }
+
+        /* UNIFORM 4-SQUARE GRID CONTAINER */
+        .fn-square-four-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr) !important; /* Perfect 2x2 symmetry */
+            gap: 12px !important;
+            padding: 0 16px !important;
+            width: 100% !important;
+        }
+        .fn-grid-product-card {
+            text-decoration: none !important;
+            color: #000000 !important;
+            display: block !important;
+            width: 100% !important;
+        }
+        .fn-square-img-wrapper img {
+            width: 100% !important;
+            aspect-ratio: 1 / 1 !important; /* Forces a crisp uniform square size */
+            object-fit: cover !important;
+            display: block !important;
+        }
+        
+        /* Retail Meta Typography Settings */
+        .fn-product-meta {
+            padding: 10px 0 16px 0 !important;
+            display: flex !important;
+            flex-direction: column !important;
+            text-align: left !important;
+        }
+        .fn-brand-name {
+            font-size: 11px !important;
+            font-weight: 800 !important;
+            text-transform: uppercase !important;
+            color: #1c1c1e !important;
+            letter-spacing: 0.5px !important;
+        }
+        .fn-item-name {
+            font-size: 12px !important;
+            color: #666666 !important;
+            margin: 2px 0 4px 0 !important;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .fn-price {
+            font-size: 12px !important;
+            font-weight: 700 !important;
+            color: #000000 !important;
+        }
+
+        /* EDITORIAL PROMO BANNER */
+        .fn-sitewide-section {
+            text-align: center !important;
+            padding: 16px 16px 35px 16px !important;
+            background-color: #ffffff !important;
+            width: 100% !important;
+        }
+        .fn-sitewide-media {
+            width: 100% !important;
+            margin-bottom: 22px !important;
+        }
+        .fn-sitewide-media img {
+            width: 100% !important;
+            height: auto !important;
+            display: block !important;
+        }
+        .fn-sitewide-section span {
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            color: #666666 !important;
+            letter-spacing: 1px !important;
+            text-transform: uppercase !important;
+        }
+        .fn-sitewide-section h3 {
+            font-size: 42px !important;
+            font-weight: 800 !important;
+            letter-spacing: -0.5px !important;
+            margin: 2px 0 20px 0 !important;
+            color: #000000 !important;
+            line-height: 1.1;
+        }
+        .fn-btn-dark {
+            display: inline-block !important;
+            padding: 14px 65px !important;
+            border: 1px solid #000000 !important;
+            color: #ffffff !important;
+            background-color: #000000 !important;
+            text-decoration: none !important;
+            font-size: 14px !important;
+            font-weight: 700 !important;
+            letter-spacing: 1.5px !important;
+            text-transform: uppercase !important;
+        }
+        .fn-marked-text {
+            font-size: 9px !important;
+            color: #8a8a8f !important;
+            letter-spacing: 0.5px !important;
+            display: block !important;
+            margin-top: 16px !important;
+            text-transform: uppercase !important;
+        }
+
+        /* GLOBAL NATIVE APP DIVIDER BAR */
+        .fn-app-divider {
+            border-top: 10px solid #f2f2f7 !important;
+            margin-top: 8px !important;
+            width: 100% !important;
+        }
+    </style>
+
+    <!-- 1. STICKY SEARCH BAR COMPONENT -->
     <div class="fn-search-container">
         <div class="fn-search-wrapper">
             <span class="fn-icon-left">
@@ -12,6 +283,7 @@
         </div>
     </div>
 
+    <!-- 2. INLINE SUB-NAVIGATION SUB-CATEGORIES -->
     <div class="fn-sub-nav">
         <a href="#" class="fn-sub-link active">All New</a>
         <a href="#" class="fn-sub-link">Clothing</a>
@@ -19,6 +291,7 @@
         <a href="#" class="fn-sub-link">Accessories</a>
     </div>
 
+    <!-- 3. HERO ARRIVALS BANNER -->
     <section class="fn-hero-banner">
         <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" class="fn-hero-img" alt="Curated Premium Accessories Stack">
         <div class="fn-hero-overlay">
@@ -33,10 +306,12 @@
         </div>
     </section>
 
+    <!-- 4. SYSTEMATIC 4-SQUARE PRODUCT GRID LAYOUT -->
     <section class="fn-trend-section">
         <h2 class="fn-section-heading">New This Week</h2>
         
         <div class="fn-square-four-grid">
+            <!-- Product Card 1 -->
             <a href="#" class="fn-grid-product-card">
                 <div class="fn-square-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80" alt="Luxury Precision Watch">
@@ -48,6 +323,7 @@
                 </div>
             </a>
 
+            <!-- Product Card 2 -->
             <a href="#" class="fn-grid-product-card">
                 <div class="fn-square-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=400&q=80" alt="Fine Designer Leather Handbag">
@@ -59,6 +335,7 @@
                 </div>
             </a>
 
+            <!-- Product Card 3 -->
             <a href="#" class="fn-grid-product-card">
                 <div class="fn-square-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=400&q=80" alt="Minimalist Durable Everyday Canvas Tote">
@@ -70,6 +347,7 @@
                 </div>
             </a>
 
+            <!-- Product Card 4 -->
             <a href="#" class="fn-grid-product-card">
                 <div class="fn-square-img-wrapper">
                     <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=400&q=80" alt="Classic Structural Sunglasses Frame">
@@ -85,6 +363,7 @@
 
     <div class="fn-app-divider"></div>
 
+    <!-- 5. EDITORIAL PROMO FOCUS HIGHLIGHT -->
     <section class="fn-sitewide-section">
         <div class="fn-sitewide-media">
             <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&w=800&q=80" alt="Elegant Textured Fine Metal Jewelry Layout">
@@ -94,5 +373,5 @@
         <a href="#" class="fn-btn-dark">Shop The Sale</a>
         <span class="fn-marked-text">Limited time offer. Discount applied automatically at checkout.</span>
     </section>
-
 </div>
+<!-- END OF HIGH-FIDELITY APP CLONE FEED -->

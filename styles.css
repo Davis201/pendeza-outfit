@@ -7,52 +7,93 @@
     color: #000000;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     box-sizing: border-box;
+    /* Smooths out native system typography anti-aliasing on desktop windows */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 .fn-app-scope * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* NATIVE SEARCH BAR PREVIEW */
+/* ==========================================================================
+   MINIMAL CHROME-STYLE CENTERED SEARCH BAR
+   ========================================================================== */
 .fn-search-container {
-    padding: 10px 14px;
+    padding: 16px 14px;
     background-color: #ffffff;
     width: 100%;
+    display: flex !important;
+    justify-content: center !important; /* Centers the search bar horizontally */
+    align-items: center !important;
 }
+
 .fn-search-wrapper {
     position: relative;
     display: flex;
     align-items: center;
     width: 100%;
-}
-.fn-search-input {
-    width: 100% !important;
-    padding: 12px 42px 12px 42px !important;
-    border: 1px solid #e5e5ea !important;
-    border-radius: 25px !important;
-    font-size: 14px !important;
-    color: #8e8e93 !important;
-    background-color: #ffffff !important;
-    outline: none !important;
-    height: 42px !important;
-}
-.fn-icon-left {
-    position: absolute;
-    left: 16px;
-    font-size: 15px;
-    color: #8e8e93;
-    pointer-events: none;
-}
-.fn-icon-right {
-    position: absolute;
-    right: 16px;
-    font-size: 18px;
-    color: #000000;
-    cursor: pointer;
+    max-width: 340px; /* Forces it into a small, elegant centered bar */
 }
 
-/* IMAGE 4: GIANT FULL-BLEED BOGO HERO */
+.fn-search-input {
+    width: 100% !important;
+    height: 40px !important;
+    padding: 0 42px 0 42px !important; /* Perfect clear space for left/right inline icons */
+    border: 1px solid #dfe1e5 !important; /* Subtle Google-style border */
+    border-radius: 20px !important; /* Clean pill shape */
+    font-size: 14px !important;
+    color: #202124 !important;
+    background-color: #ffffff !important;
+    outline: none !important;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+/* Subtle focus glow just like modern browsers */
+.fn-search-input:focus {
+    border-color: rgba(0,0,0,0) !important;
+    box-shadow: 0 1px 6px rgba(32,33,36,0.28) !important;
+}
+
+/* Precise positioning containers for structural layout tracking */
+.fn-icon-left, .fn-icon-right {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.fn-icon-left {
+    left: 14px;
+    pointer-events: none;
+}
+
+.fn-icon-right {
+    right: 14px;
+    cursor: pointer;
+    pointer-events: auto; /* Allows interaction on the camera button */
+}
+
+/* Precise, forced dimensions for vector icons to prevent size leakage */
+.fn-icon-left svg, .fn-icon-right svg {
+    width: 18px !important;   /* Forces the magnifying glass and camera to a crisp size */
+    height: 18px !important;  /* Keeps the aspect ratio perfectly square */
+    fill: #70757a;            /* Clean modern slate-gray icon color */
+    transition: fill 0.2s;
+    display: block;           /* Eliminates font-baseline shifting alignment errors */
+}
+
+.fn-icon-right:hover svg {
+    fill: #202124; /* Darkens gracefully on mouse hover */
+}
+
+/* ==========================================================================
+   IMAGE 4: GIANT FULL-BLEED BOGO HERO
+   ========================================================================== */
 .fn-hero-banner {
     position: relative;
     width: 100% !important;
@@ -146,7 +187,9 @@
     letter-spacing: 0.5px;
 }
 
-/* IMAGE 5: THE TREND REPORT (MASSIVE GRID PLACEMENT) */
+/* ==========================================================================
+   IMAGE 5: THE TREND REPORT (MASSIVE GRID PLACEMENT)
+   ========================================================================== */
 .fn-section-heading {
     font-size: 18px !important;
     font-weight: 900 !important;
@@ -192,7 +235,9 @@
     font-weight: 700 !important;
 }
 
-/* IMAGE 6: MASSIVE 80% OFF SITEWIDE PROFILE */
+/* ==========================================================================
+   IMAGE 6: MASSIVE 80% OFF SITEWIDE PROFILE
+   ========================================================================== */
 .fn-sitewide-section {
     text-align: center !important;
     padding: 16px 16px 35px 16px !important;
@@ -247,4 +292,15 @@
     border-top: 10px solid #f2f2f7 !important;
     margin-top: 8px !important;
     width: 100% !important;
+}
+
+/* ==========================================================================
+   DYNAMIC CORE FRAMEWORK TRACK OVERRIDES
+   ========================================================================== */
+
+/* Overrides structural page panels to accurately expand when this theme is fetched via AJAX */
+.page-panel:has(.fn-app-scope) {
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 0px !important; /* Strips internal padding to enable seamless full-bleed images */
 }

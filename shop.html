@@ -40,13 +40,13 @@
 </div>
 
 <nav class="sub-nav">
-    <a href="#" class="nav-link active" onclick="goToPage(0)">SHOP</a>
-    <a href="#" class="nav-link" onclick="goToPage(1)">WOMEN</a>
-    <a href="#" class="nav-link" onclick="goToPage(2)">MEN</a>
-    <a href="#" class="nav-link" onclick="goToPage(3)">KIDS</a>
-    <a href="#" class="nav-link" onclick="goToPage(4)">SPORTS</a>
-    <a href="#" class="nav-link" onclick="goToPage(5)">NEW IN <span class="badge">NEW</span></a>
-    <a href="#" class="nav-link" onclick="goToPage(6)">ACCESSORIES</a>
+    <a href="#" class="nav-link active">SHOP</a>
+    <a href="#" class="nav-link">WOMEN</a>
+    <a href="#" class="nav-link">MEN</a>
+    <a href="#" class="nav-link">KIDS</a>
+    <a href="#" class="nav-link">SPORTS</a>
+    <a href="#" class="nav-link">NEW IN <span class="badge">NEW</span></a>
+    <a href="#" class="nav-link">ACCESSORIES</a>
 </nav>
 
 <div class="side-menu" id="sideMenu">
@@ -59,7 +59,7 @@
 <div class="swipe-viewport">
     <div class="swipe-container" id="swipeContainer">
         
-        <div class="page-panel">
+        <div class="page-panel" data-loaded="true">
             
             <div class="hero" style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8'); background-size: cover; background-position: center; height: 55vh; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; border-radius: 8px;">
                 <div class="hero-content" style="padding: 0 20px;">
@@ -99,27 +99,27 @@
         </div>
 
         <div class="page-panel">
-            <h2>Women's Content Panels</h2>
+            <p style="text-align:center; padding:100px 20px; color:#8e8e93; font-family:sans-serif;">Loading Women's Collection...</p>
         </div>
 
         <div class="page-panel">
-            <h2>Men's Content Panels</h2>
+            <p style="text-align:center; padding:100px 20px; color:#8e8e93; font-family:sans-serif;">Loading Men's Collection...</p>
         </div>
 
         <div class="page-panel">
-            <h2>Sport Content Panels</h2>
+            <p style="text-align:center; padding:100px 20px; color:#8e8e93; font-family:sans-serif;">Loading Kids Collection...</p>
         </div>
 
         <div class="page-panel">
-            <h2>Kids Collection Content</h2>
+            <p style="text-align:center; padding:100px 20px; color:#8e8e93; font-family:sans-serif;">Loading Sports Gear...</p>
         </div>
 
         <div class="page-panel">
-            <h2>New In Arrivals Content</h2>
+            <p style="text-align:center; padding:100px 20px; color:#8e8e93; font-family:sans-serif;">Loading New Arrivals...</p>
         </div>
 
         <div class="page-panel">
-            <h2>Accessories Content Panels</h2>
+            <p style="text-align:center; padding:100px 20px; color:#8e8e93; font-family:sans-serif;">Loading Accessories...</p>
         </div>
 
     </div>
@@ -135,7 +135,7 @@ const links = document.querySelectorAll('.sub-nav .nav-link');
 let currentPage = 0;
 const totalPages = 7;
 
-// List out your separate HTML files in exact navigation order
+// Exact target layout order mapping array
 const pages = [
     "shop.html",        // Index 0
     "womens.html",      // Index 1
@@ -167,16 +167,20 @@ function handleSwipe() {
     }
 }
 
+function toggleMenu() {
+    const menu = document.getElementById('sideMenu');
+    menu.classList.toggle('active');
+}
+
 /* ===================================================
    SMOOTH AJAX SLIDE MECHANICS
 =================================================== */
 function goToPage(pageIndex) {
     currentPage = pageIndex;
     
-    // 1. Instantly slide the wrapper panel smoothly over (The visual app effect)
+    // Slide transition layout handler
     container.style.transform = `translateX(-${pageIndex * 100}vw)`;
     
-    // 2. Update navigation header highlights
     links.forEach((link, idx) => {
         if (idx === pageIndex) {
             link.classList.add('active');
@@ -186,32 +190,41 @@ function goToPage(pageIndex) {
         }
     });
 
-    // 3. Look at the specific panel target we are sliding into
     const targetPanel = container.children[pageIndex];
     const targetUrl = pages[pageIndex];
 
-    // 4. DYNAMIC FETCH: Go get the clean content from your separate HTML file silently!
     if (pageIndex !== 0 && targetPanel.getAttribute('data-loaded') !== 'true') {
         fetch(targetUrl)
-            .then(response => response.text())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP status ${response.status} finding ${targetUrl}`);
+                }
+                return response.text();
+            })
             .then(htmlString => {
-                // Parse the downloaded page code
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlString, 'text/html');
-                
-                /* Grab ONLY the content layout inside the main body of that file 
-                   so we don't accidentally pull duplicate headers/footers */
                 const freshContent = doc.querySelector('.page-panel') || doc.body;
                 
-                // Drop the fresh styles inside our current swipe view panel
                 targetPanel.innerHTML = freshContent.innerHTML;
-                targetPanel.setAttribute('data-loaded', 'true'); // Flag it so it doesn't download twice
+                targetPanel.setAttribute('data-loaded', 'true');
             })
             .catch(err => {
                 console.error("Could not fetch the layout dynamically: ", err);
+                targetPanel.innerHTML = `<div style="text-align:center; padding:100px 20px; color:red; font-family:sans-serif;">Failed to load section. Please refresh.</div>`;
             });
     }
 }
+
+/* ===================================================
+   CLICK HEADER NAVIGATION INTERACTION
+=================================================== */
+links.forEach((link, index) => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        goToPage(index);
+    });
+});
 </script>
 </body>
 </html>
