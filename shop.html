@@ -132,19 +132,19 @@
 <script>
 const container = document.getElementById('swipeContainer');
 const links = document.querySelectorAll('.sub-nav .nav-link');
-
-/* ===================================================
-   CRITICAL NOTE FOR SEPARATE PAGES:
-   * Inside shop.html, keep this: let currentPage = 0;
-   * Inside womens.html, change this to: let currentPage = 1;
-   * Inside mens.html, change this to: let currentPage = 2;
-   * Inside kids.html, change this to: let currentPage = 3;
-   * Inside sports.html, change this to: let currentPage = 4;
-   * Inside newin.html, change this to: let currentPage = 5;
-   * Inside accessories.html, change this to: let currentPage = 6;
-=================================================== */
-let currentPage = 0; 
+let currentPage = 0;
 const totalPages = 7;
+
+// List out your separate HTML files in exact navigation order
+const pages = [
+    "shop.html",        // Index 0
+    "womens.html",      // Index 1
+    "mens.html",        // Index 2
+    "kids.html",        // Index 3
+    "sports.html",      // Index 4
+    "newin.html",       // Index 5
+    "accessories.html"  // Index 6
+];
 
 let touchStartX = 0;
 let touchEndX = 0;
@@ -167,22 +167,50 @@ function handleSwipe() {
     }
 }
 
+/* ===================================================
+   SMOOTH AJAX SLIDE MECHANICS
+=================================================== */
 function goToPage(pageIndex) {
     currentPage = pageIndex;
     
-    // Array matching your navigation links order
-    const pages = [
-        "shop.html",        // Index 0
-        "womens.html",      // Index 1
-        "mens.html",        // Index 2
-        "kids.html",        // Index 3
-        "sports.html",      // Index 4
-        "newin.html",       // Index 5
-        "accessories.html"  // Index 6
-    ];
+    // 1. Instantly slide the wrapper panel smoothly over (The visual app effect)
+    container.style.transform = `translateX(-${pageIndex * 100}vw)`;
+    
+    // 2. Update navigation header highlights
+    links.forEach((link, idx) => {
+        if (idx === pageIndex) {
+            link.classList.add('active');
+            link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+            link.classList.remove('active');
+        }
+    });
 
-    // Instantly routes the web browser to the matching page file
-    window.location.href = pages[pageIndex];
+    // 3. Look at the specific panel target we are sliding into
+    const targetPanel = container.children[pageIndex];
+    const targetUrl = pages[pageIndex];
+
+    // 4. DYNAMIC FETCH: Go get the clean content from your separate HTML file silently!
+    if (pageIndex !== 0 && targetPanel.getAttribute('data-loaded') !== 'true') {
+        fetch(targetUrl)
+            .then(response => response.text())
+            .then(htmlString => {
+                // Parse the downloaded page code
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlString, 'text/html');
+                
+                /* Grab ONLY the content layout inside the main body of that file 
+                   so we don't accidentally pull duplicate headers/footers */
+                const freshContent = doc.querySelector('.page-panel') || doc.body;
+                
+                // Drop the fresh styles inside our current swipe view panel
+                targetPanel.innerHTML = freshContent.innerHTML;
+                targetPanel.setAttribute('data-loaded', 'true'); // Flag it so it doesn't download twice
+            })
+            .catch(err => {
+                console.error("Could not fetch the layout dynamically: ", err);
+            });
+    }
 }
 </script>
 </body>
