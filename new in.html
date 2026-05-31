@@ -1,25 +1,11 @@
-<!-- START OF HIGH-FIDELITY APP CLONE FEED -->
-<div class="fn-app-scope">
+<div class="page-panel">
     <style>
-        /* Scoped Container Sandbox & Full-Bleed Resets */
-        .fn-app-scope {
-            width: 100%;
-            background-color: #ffffff;
-            color: #000000;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            box-sizing: border-box;
-        }
-        .fn-app-scope * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* NATIVE SEARCH BAR PREVIEW */
+        /* Scoped Components for Accessories Layout */
         .fn-search-container {
             padding: 10px 14px;
             background-color: #ffffff;
             width: 100%;
+            margin-bottom: 10px;
         }
         .fn-search-wrapper {
             position: relative;
@@ -34,7 +20,7 @@
             border-radius: 25px !important;
             font-size: 14px !important;
             color: #8e8e93 !important;
-            background-color: #ffffff !important;
+            background-color: #f2f2f7 !important;
             outline: none !important;
             height: 42px !important;
         }
@@ -44,6 +30,8 @@
             font-size: 15px;
             color: #8e8e93;
             pointer-events: none;
+            display: flex;
+            align-items: center;
         }
         .fn-icon-right {
             position: absolute;
@@ -51,110 +39,111 @@
             font-size: 18px;
             color: #000000;
             cursor: pointer;
+            display: flex;
+            align-items: center;
         }
 
-        /* IMAGE 4: GIANT FULL-BLEED BOGO HERO */
         .fn-hero-banner {
             position: relative;
             width: 100% !important;
             overflow: hidden;
             background-color: #ffffff;
+            border-radius: 8px;
         }
         .fn-hero-img {
             width: 100% !important;
-            height: auto !important;
+            height: 55vh !important;
+            object-fit: cover !important;
             display: block !important;
         }
         .fn-hero-overlay {
             position: absolute;
-            top: 25px;
+            top: 0;
             left: 0;
             width: 100%;
-            text-align: center;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.65));
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             color: #ffffff;
-            padding: 0 10px;
+            padding: 25px 20px;
+            box-sizing: border-box;
         }
         .fn-promo-row {
             display: flex !important;
             justify-content: center !important;
             align-items: flex-start !important;
-            gap: 8px !important;
+            gap: 16px !important;
+            text-align: center;
+            width: 100%;
         }
         .fn-promo-box {
             flex: 1 !important;
         }
         .fn-promo-box h2 {
+            font-family: 'Playfair Display', serif !important;
             font-size: 38px !important;
             font-weight: 900 !important;
-            letter-spacing: -1px !important;
-            line-height: 1.05 !important;
+            letter-spacing: -0.5px !important;
+            line-height: 1.1 !important;
             color: #ffffff !important;
-            text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+            text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
             text-transform: uppercase;
         }
         .fn-promo-box p {
-            font-size: 13px !important;
+            font-size: 12px !important;
             font-weight: 700 !important;
-            letter-spacing: 0.5px !important;
-            margin: 4px 0 6px 0 !important;
+            letter-spacing: 1.5px !important;
+            margin: 6px 0 6px 0 !important;
             color: #ffffff !important;
-            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
             text-transform: uppercase;
         }
         .fn-promo-code {
             font-size: 11px !important;
-            letter-spacing: 0.2px !important;
+            letter-spacing: 0.5px !important;
             color: #ffffff !important;
-            text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.5);
+            text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.6);
         }
         .fn-promo-code strong {
             font-weight: 900 !important;
         }
-        .fn-promo-divider {
-            font-size: 11px !important;
-            font-weight: 700 !important;
-            color: rgba(255, 255, 255, 0.9) !important;
-            margin-top: 12px;
-            text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.4);
-        }
         .fn-hero-btn-container {
-            position: absolute;
-            bottom: 45px;
-            width: 100%;
             text-align: center;
+            width: 100%;
+            margin-bottom: 10px;
         }
         .fn-shop-btn-outline {
             display: inline-block !important;
-            padding: 12px 55px !important;
+            padding: 12px 45px !important;
             border: 1.5px solid #ffffff !important;
             color: #ffffff !important;
             text-decoration: none !important;
-            font-size: 14px !important;
+            font-size: 13px !important;
             font-weight: 700 !important;
             letter-spacing: 1.5px !important;
             text-transform: uppercase !important;
-            background-color: rgba(0, 0, 0, 0.15) !important;
-            backdrop-filter: blur(2px);
-            -webkit-backdrop-filter: blur(2px);
+            background-color: rgba(0, 0, 0, 0.2) !important;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            transition: all 0.3s ease;
         }
-        .fn-tcs {
-            position: absolute;
-            bottom: 12px;
-            width: 100%;
-            text-align: center;
-            font-size: 8px;
-            color: rgba(255, 255, 255, 0.7);
-            letter-spacing: 0.5px;
+        .fn-shop-btn-outline:hover {
+            background-color: #ffffff !important;
+            color: #000000 !important;
         }
 
-        /* IMAGE 5: THE TREND REPORT (MASSIVE GRID PLACEMENT) */
+        /* THE TREND REPORT (MASSIVE GRID PLACEMENT) */
         .fn-section-heading {
             font-size: 18px !important;
-            font-weight: 900 !important;
+            font-weight: 800 !important;
             text-transform: uppercase !important;
-            padding: 28px 16px 14px 16px !important;
-            letter-spacing: 0.2px !important;
+            padding: 35px 16px 15px 16px !important;
+            letter-spacing: 0.5px !important;
             color: #000000 !important;
+            text-align: center;
             display: block !important;
         }
         .fn-trend-grid {
@@ -170,39 +159,53 @@
             display: block !important;
             width: 100% !important;
         }
-        .fn-trend-card img {
+        .fn-trend-img-wrapper {
             width: 100% !important;
             aspect-ratio: 3 / 4 !important;
+            overflow: hidden !important;
+            border-radius: 6px;
+            background-color: #f7f7f7;
+        }
+        .fn-trend-card img {
+            width: 100% !important;
+            height: 100% !important;
             object-fit: cover !important;
             display: block !important;
+            transition: transform 0.4s ease;
+        }
+        .fn-trend-card:hover img {
+            transform: scale(1.03);
         }
         .fn-trend-label {
             font-size: 13px !important;
-            font-weight: 700 !important;
+            font-weight: 600 !important;
             text-align: center !important;
-            padding: 12px 0 16px 0 !important;
+            padding: 10px 0 20px 0 !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             color: #1c1c1e !important;
         }
-        .fn-trend-label::after {
-            content: " ›" !important;
+        .fn-trend-label .arrow {
             font-size: 15px !important;
             margin-left: 5px !important;
             font-weight: 700 !important;
+            color: #8e8e93;
         }
 
-        /* IMAGE 6: MASSIVE 80% OFF SITEWIDE PROFILE */
+        /* PROMO FEATURE SPOTLIGHT BLOCK */
         .fn-sitewide-section {
             text-align: center !important;
-            padding: 16px 16px 35px 16px !important;
+            padding: 35px 20px !important;
             background-color: #ffffff !important;
             width: 100% !important;
+            border-top: 1px solid #eee;
         }
         .fn-sitewide-media {
             width: 100% !important;
-            margin-bottom: 22px !important;
+            margin-bottom: 20px !important;
+            border-radius: 6px;
+            overflow: hidden;
         }
         .fn-sitewide-media img {
             width: 100% !important;
@@ -210,130 +213,116 @@
             display: block !important;
         }
         .fn-sitewide-section span {
-            font-size: 13px !important;
-            font-weight: 500 !important;
-            color: #666666 !important;
-            letter-spacing: 1px !important;
+            font-size: 11px !important;
+            font-weight: 600 !important;
+            color: #8e8e93 !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase;
         }
         .fn-sitewide-section h3 {
-            font-size: 42px !important;
-            font-weight: 800 !important;
+            font-family: 'Playfair Display', serif;
+            font-size: 32px !important;
+            font-weight: 700 !important;
             letter-spacing: -0.5px !important;
-            margin: 2px 0 20px 0 !important;
+            margin: 6px 0 20px 0 !important;
             color: #000000 !important;
-            line-height: 1.1;
+            line-height: 1.2;
         }
         .fn-btn-dark {
             display: inline-block !important;
-            padding: 14px 65px !important;
+            padding: 12px 45px !important;
             border: 1px solid #000000 !important;
             color: #ffffff !important;
             background-color: #000000 !important;
             text-decoration: none !important;
-            font-size: 14px !important;
+            font-size: 13px !important;
             font-weight: 700 !important;
-            letter-spacing: 1.5px !important;
+            letter-spacing: 1px !important;
             text-transform: uppercase !important;
+            border-radius: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         .fn-marked-text {
             font-size: 9px !important;
-            color: #8a8a8f !important;
+            color: #a1a1a6 !important;
             letter-spacing: 0.5px !important;
             display: block !important;
             margin-top: 16px !important;
             text-transform: uppercase;
         }
-
-        /* GLOBAL NATIVE APP DIVIDER BAR */
-        .fn-app-divider {
-            border-top: 10px solid #f2f2f7 !important;
-            margin-top: 8px !important;
-            width: 100% !important;
-        }
     </style>
 
-    <!-- SEARCH CONTAINER BAR -->
     <div class="fn-search-container">
         <div class="fn-search-wrapper">
-            <span class="fn-icon-left">🔍</span>
-            <input type="text" class="fn-search-input" placeholder="Search latest arrivals & upcoming drops" disabled>
-            <span class="fn-icon-right">📷</span>
+            <span class="fn-icon-left">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8e8e93" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <input type="text" class="fn-search-input" placeholder="Search accessories, bags & jewelry">
+            <span class="fn-icon-right">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+            </span>
         </div>
     </div>
 
-    <!-- 1. IMAGE 4 ARRANGEMENT: BOGO FREE HERO SECTION -->
     <section class="fn-hero-banner">
-        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" class="fn-hero-img" alt="New Season Apparel Rack">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80" class="fn-hero-img" alt="Curated Premium Accessories Stack">
         
         <div class="fn-hero-overlay">
             <div class="fn-promo-row">
                 <div class="fn-promo-box">
-                    <h2>NEW DROPS</h2>
-                    <p>JUST ARRIVED TODAY</p>
-                    <div class="fn-promo-code">USE CODE: <strong>NEW15</strong></div>
-                </div>
-                
-                <div class="fn-promo-divider">(OR)</div>
-                
-                <div class="fn-promo-box">
-                    <h2>NEXT WEEK</h2>
-                    <p>PRE-ORDER PREVIEWS</p>
-                    <div class="fn-promo-code">USE CODE: <strong>EARLYACCESS</strong></div>
+                    <h2>FINISHING TOUCH</h2>
+                    <p>ELEVATED ACCENTS FROM $25</p>
+                    <div class="fn-promo-code">USE CODE: <strong>FINISH</strong></div>
                 </div>
             </div>
+            
+            <div class="fn-hero-btn-container">
+                <a href="#" class="fn-shop-btn-outline">Shop Accents</a>
+            </div>
         </div>
-
-        <div class="fn-hero-btn-container">
-            <a href="#" class="fn-shop-btn-outline">Explore First</a>
-        </div>
-        <div class="fn-tcs">T&CS APPLY</div>
     </section>
 
-    <!-- 2. IMAGE 5 ARRANGEMENT: THE TREND REPORT GRID -->
     <section class="fn-trend-section">
-        <h2 class="fn-section-heading">Weekly Style Drops</h2>
+        <h2 class="fn-section-heading">Trending Elements</h2>
         
         <div class="fn-trend-grid">
             <a href="#" class="fn-trend-card">
-                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=80" alt="Fresh Accessories & Tech">
-                <div class="fn-trend-label">Fresh Off the Line</div>
+                <div class="fn-trend-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1524592094714-0f0654e20314?auto=format&fit=crop&w=400&q=80" alt="Luxury Precision Watch">
+                </div>
+                <div class="fn-trend-label">Luxury Watches <span class="arrow">›</span></div>
             </a>
 
             <a href="#" class="fn-trend-card">
-                <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=400&q=80" alt="Next Generation Outerwear">
-                <div class="fn-trend-label">Next-Gen Cuts</div>
+                <div class="fn-trend-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=400&q=80" alt="Fine Designer Leather Handbag">
+                </div>
+                <div class="fn-trend-label">Premium Handbags <span class="arrow">›</span></div>
             </a>
 
             <a href="#" class="fn-trend-card">
-                <img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?auto=format&fit=crop&w=400&q=80" alt="Unreleased Footwear Silhouette">
-                <div class="fn-trend-label">Unreleased Sneaks</div>
+                <div class="fn-trend-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=400&q=80" alt="Minimalist Durable Everyday Canvas Tote">
+                </div>
+                <div class="fn-trend-label">Everyday Totes <span class="arrow">›</span></div>
             </a>
 
             <a href="#" class="fn-trend-card">
-                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=400&q=80" alt="Seasonal Essentials Capsule">
-                <div class="fn-trend-label">Coming Next Week</div>
+                <div class="fn-trend-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=400&q=80" alt="Classic Structural Sunglasses Frame">
+                </div>
+                <div class="fn-trend-label">Statement Eyewear <span class="arrow">›</span></div>
             </a>
         </div>
     </section>
 
-    <div class="fn-app-divider"></div>
-
-    <!-- 3. IMAGE 6 ARRANGEMENT: SITEWIDE PERCENT BANNER SECTION -->
     <section class="fn-sitewide-section">
         <div class="fn-sitewide-media">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="Futuristic Premium Garment Display">
+            <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?auto=format&fit=crop&w=800&q=80" alt="Elegant Textured Fine Metal Jewelry Layout">
         </div>
-        <span>( INTRODUCING )</span>
-        <h3>THE NEW COLLECTION</h3>
-        <a href="#" class="fn-btn-dark">Shop Collection</a>
-        <span class="fn-marked-text">LIMITED EDITION PREVIEWS RUNNING FOR 72 HOURS ONLY.</span>
-    </section>
-
-    <div class="fn-app-divider"></div>
-
-    <!-- 4. SHOP BY BRAND BLOCK INITIALIZATION -->
-    <section class="fn-brand-preview">
-        <h2 class="fn-section-heading">Shop Latest Brands</h2>
+        <span>Save Up To</span>
+        <h3>40% OFF ESSENTIAL HARDWARE</h3>
+        <a href="#" class="fn-btn-dark">Shop Sale</a>
+        <span class="fn-marked-text">Prices as marked. Excludes upcoming collection previews.</span>
     </section>
 </div>
-<!-- END OF HIGH-FIDELITY APP CLONE FEED -->
