@@ -1,5 +1,17 @@
 /* Save this entire block exactly as a file named: trend_report.css */
+/* 1. LOCK CONTAINER RATIOS TO STOP JUMPING */
+.fn-trend-card, .fn-trend-card img {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
 
+/* 2. RESERVE SPACE FOR HERO BANNER */
+.fn-hero-banner {
+    min-height: 250px; /* Adjust based on your preferred hero height */
+    background: #f2f2f7; /* Placeholder color while image loads */
+}
 /* Scoped Container Sandbox & Full-Bleed Resets */
 .fn-app-scope {
     width: 100%;
