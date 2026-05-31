@@ -196,13 +196,16 @@ body.index-page {
     cursor: pointer;
 }
 
+/* Aligns logo and desktop search layout parameters perfectly inline */
 .main-header {
     display: flex;
-    flex-direction: column; /* Allows navigation to stack nicely beneath logo/search tracking */
+    flex-direction: row; 
+    justify-content: space-between;
+    align-items: center;
     padding: 15px 40px;
     background: #fff;
     border-bottom: 1px solid #eee;
-    gap: 15px;
+    gap: 30px;
 }
 
 .logo {
@@ -213,6 +216,7 @@ body.index-page {
     letter-spacing: 2px;
     color: #111;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .logo span {
@@ -223,10 +227,9 @@ body.index-page {
 
 .search-box {
     flex: 1;
-    max-width: 600px;
+    max-width: 500px;
     position: relative;
-    margin: 0 auto;
-    width: 100%;
+    margin: 0;
 }
 
 .search-box input {
@@ -235,6 +238,7 @@ body.index-page {
     border-radius: 30px;
     border: 1px solid #ddd;
     outline: none;
+    background: #f9f9f9;
 }
 
 .icon {
@@ -249,50 +253,32 @@ body.index-page {
 .search-icon { left: 15px; }
 .camera-icon { right: 15px; }
 
-.actions {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.actions a {
-    text-decoration: none;
-    font-size: 12px;
-    font-weight: 600;
-    color: #222;
-    text-transform: uppercase;
-}
-
-.sign-in {
-    background: #000;
-    color: #fff;
-    border: none;
-    padding: 10px 16px;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-}
-
+/* Desktop styling for the categories bar sitting below the header row */
 .sub-nav {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 25px;       
-    padding: 10px 0;         
-    overflow-x: auto;           
-    white-space: nowrap;
+    padding: 14px 40px;         
     background: #fff;
-    scrollbar-width: none;      
+    border-bottom: 1px solid #f2f2f2;
     width: 100%;
 }
-
-.sub-nav::-webkit-scrollbar { display: none; }
 
 .sub-nav a {
     text-decoration: none;
     font-size: 13px;            
-    color: #333;
+    color: #222;
     text-transform: uppercase;
     display: inline-block;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-bottom: 2px;
+}
+
+.sub-nav a.highlight {
+    color: #000;
+    border-bottom: 2px solid #000;
 }
 
 .badge {
@@ -394,117 +380,6 @@ body.index-page {
 .mobile-header { display: none; }
 
 /* ===================================================
-   REPAIRED MOBILE BREAKPOINTS ENGINE (MAX-WIDTH: 768px)
-=================================================== */
-
-@media (max-width: 768px) {
-
-    .promo-bar, .main-header {
-        display: none !important;
-    }
-
-    /* REPAIRED ROW BREAKDOWN: 
-       Changes the header from one inline line into a stacked column setup on mobile 
-    */
-    .mobile-header {
-        display: flex !important;     
-        flex-direction: column !important; /* Forces layout rows to safely stack without squeezing */
-        background: #ffffff !important;
-        border-bottom: 1px solid #eeeeee !important;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        width: 100% !important;
-        height: auto !important; /* Allows height to expand for row content */
-        padding: 0 !important;
-    }
-
-    /* ROW 1 AREA: Top Branding Shell */
-    .mobile-logo {
-        font-family: 'Playfair Display', serif !important;
-        font-style: italic !important;
-        font-size: 18px !important;              
-        font-weight: 700 !important;
-        letter-spacing: 0.5px;
-        color: #111111;
-        width: 100%;
-        text-align: center;
-        padding: 14px 0 6px 0 !important;
-        order: 1; /* Locks Logo cleanly on line 1 */
-    }
-
-    .mobile-icons {
-        position: absolute;
-        top: 12px;
-        right: 16px;
-        font-size: 22px !important;              
-        cursor: pointer;
-        color: #111111;
-        z-index: 1001;
-    }
-
-    /* ROW 2 AREA: Beautiful, Non-Squished Mobile Search Bar Component Box */
-    .mobile-search {
-        display: flex !important;
-        align-items: center !important;
-        background: #f5f5f5 !important;
-        border-radius: 8px !important; /* Sleek square rounded corner aesthetics */
-        padding: 0 14px !important;           
-        margin: 8px 16px 12px 16px !important; /* Perfect uniform padding container alignment */
-        height: 42px !important; /* Fluid, clickable input field sizing targets */
-        width: calc(100% - 32px) !important; /* Accounts precisely for structural margins */
-        order: 2; /* Locks Search safely on line 2 */
-    }
-
-    .mobile-search input {
-        border: none !important;
-        background: transparent !important;
-        flex: 1 !important;
-        outline: none !important;
-        font-size: 14px !important;
-        color: #111111 !important;
-        padding: 0 8px !important;
-        margin: 0 !important;
-        height: 100% !important;
-    }
-
-    /* Fixes alignment and colors for inline Vector SVG geometry icons */
-    .mobile-search-icon,
-    .mobile-camera-icon {
-        width: 18px !important;
-        height: 18px !important;
-        fill: #666666 !important;
-        flex-shrink: 0 !important;
-        display: block !important;
-    }
-
-    /* Hero adjustments */
-    .hero {
-        height: 50vh !important;
-    }
-    
-    .hero h1 {
-        font-size: 32px !important;
-    }
-
-    /* Streamlines product grids into 2 balanced columns */
-    .feature-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 16px !important;
-    }
-
-    .feature {
-        width: 100% !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .feature-grid {
-        grid-template-columns: 1fr !important; /* Stack items vertically on tiny screen display widths */
-    }
-}
-/* ===================================================
    TREND REPORT GRID SYSTEM
 =================================================== */
 
@@ -582,14 +457,128 @@ body.index-page {
 }
 
 /* ===================================================
-   MOBILE RESPONSIVE MEDIA TARGET (IMAGE_2.PNG MATCH)
+   MOBILE BREAKPOINTS CONTROLLER ENGINE (MAX-WIDTH: 768px)
 =================================================== */
 
 @media (max-width: 768px) {
-    /* Hard forces the strict 2x2 grid layout style */
+
+    .promo-bar, .main-header {
+        display: none !important;
+    }
+
+    /* Stacks row modules within the layout header cleanly on mobile viewports */
+    .mobile-header {
+        display: flex !important;     
+        flex-direction: column !important; 
+        background: #ffffff !important;
+        border-bottom: 1px solid #eeeeee !important;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        width: 100% !important;
+        height: auto !important; 
+        padding: 0 !important;
+    }
+
+    /* ROW 1 AREA: Top Branding Shell */
+    .mobile-logo {
+        font-family: 'Playfair Display', serif !important;
+        font-style: italic !important;
+        font-size: 18px !important;              
+        font-weight: 700 !important;
+        letter-spacing: 0.5px;
+        color: #111111;
+        width: 100%;
+        text-align: center;
+        padding: 14px 0 6px 0 !important;
+        order: 1; 
+    }
+
+    .mobile-icons {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        font-size: 22px !important;              
+        cursor: pointer;
+        color: #111111;
+        z-index: 1001;
+    }
+
+    /* ROW 2 AREA: Mobile Search Bar Box Configuration */
+    .mobile-search {
+        display: flex !important;
+        align-items: center !important;
+        background: #f5f5f5 !important;
+        border-radius: 8px !important; 
+        padding: 0 14px !important;           
+        margin: 8px 16px 12px 16px !important; 
+        height: 42px !important; 
+        width: calc(100% - 32px) !important; 
+        order: 2; 
+    }
+
+    .mobile-search input {
+        border: none !important;
+        background: transparent !important;
+        flex: 1 !important;
+        outline: none !important;
+        font-size: 14px !important;
+        color: #111111 !important;
+        padding: 0 8px !important;
+        margin: 0 !important;
+        height: 100% !important;
+    }
+
+    .mobile-search-icon,
+    .mobile-camera-icon {
+        width: 18px !important;
+        height: 18px !important;
+        fill: #666666 !important;
+        flex-shrink: 0 !important;
+        display: block !important;
+    }
+
+    /* Restores the fluid inline sideways scroll strip on mobile viewports */
+    .sub-nav {
+        display: flex !important;
+        justify-content: flex-start !important;
+        gap: 20px !important;            
+        padding: 12px 16px !important;    
+        border-bottom: 1px solid #eeeeee !important;
+        overflow-x: auto !important;     
+        white-space: nowrap !important;  
+        scrollbar-width: none !important;
+        width: 100% !important;
+    }
+    
+    .sub-nav::-webkit-scrollbar {
+        display: none !important;
+    }
+
+    .sub-nav a {
+        font-size: 12px !important;      
+        padding: 0 0 4px 0 !important;
+        color: #666666 !important;
+    }
+
+    .sub-nav a.highlight {
+        border-bottom: 2px solid #000000 !important; 
+        color: #000000 !important;
+    }
+
+    /* Hero adjustments */
+    .hero {
+        height: 50vh !important;
+    }
+    
+    .hero h1 {
+        font-size: 32px !important;
+    }
+
+    /* Hard forces the strict 2x2 grid layout style matching image_2.png */
     .trend-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 16px 12px !important; /* Slightly wider column separation gaps */
+        gap: 16px 12px !important; 
     }
     
     .trend-report-section .grid-section-title {
@@ -600,5 +589,21 @@ body.index-page {
     .trend-label {
         font-size: 12px;
         margin-top: 10px;
+    }
+
+    .feature-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+    }
+
+    .feature {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .feature-grid {
+        grid-template-columns: 1fr !important; 
     }
 }
